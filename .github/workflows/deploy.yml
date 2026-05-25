@@ -23,7 +23,6 @@ jobs:
         with:
           node-version: 22
       - run: npm install -g pnpm
-      - run: echo "minimum-release-age=0" >> .npmrc
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
       - uses: actions/upload-pages-artifact@v3

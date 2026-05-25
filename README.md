@@ -1,16 +1,12 @@
-# Starlight Starter Kit: Basics
+# codegraph 文件站
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
-```
-npm create astro@latest -- --template starlight
-```
+**codegraph**](https://colbymchenry.github.io/codegraph) 是一個本地優先的程式碼智慧工具，能將任何程式碼庫轉換成可查詢的知識圖譜，供 AI 程式碼代理人使用。
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+本站是 codegraph 的中文文件網站，涵蓋快速入門、核心概念、使用指南與 API 參考，以 [Astro](https://astro.build/) + [Starlight](https://starlight.astro.build/) 建置並部署於 GitHub Pages。
 
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+## 專案結構
 
 ```
 .
@@ -25,32 +21,29 @@ Inside of your Astro + Starlight project, you'll see the following folders and f
 └── tsconfig.json
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+文件放在 `src/content/docs/` 目錄，支援 `.md` / `.mdx` 格式，檔名即路由。
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+## 常用指令
 
-Static assets, like favicons, can be placed in the `public/` directory.
+在專案根目錄執行：
 
-## 🧞 Commands
+| 指令 | 說明 |
+| :--- | :--- |
+| `pnpm install` | 安裝相依套件 |
+| `pnpm dev` | 啟動開發伺服器 `localhost:4321` |
+| `pnpm build` | 建置正式版本至 `./dist/` |
+| `pnpm preview` | 本機預覽正式建置結果 |
 
-All commands are run from the root of the project, from a terminal:
+## 部署
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+push 到 `main` branch 後，GitHub Actions 自動建置並部署至：
 
-## 👀 Want to learn more?
+```
+https://jacobhsu.github.io/codegraph-starlight/
+```
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+## 參考資料
 
-## Referneces
-
-[astro](https://astro.build/) The web framework for content-driven websites  
-[starlight](https://starlight.astro.build/) Make your docs shine with Starlight  
-codegraph [site](https://colbymchenry.github.io/codegraph/)  Pre-indexed code knowledge graph  
-
+- [Astro](https://astro.build/) — 內容驅動的網頁框架
+- [Starlight](https://starlight.astro.build/) — Astro 文件主題
+- [codegraph](https://colbymchenry.github.io/codegraph/) — 程式碼知識圖譜工具

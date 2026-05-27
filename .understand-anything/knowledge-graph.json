@@ -1,0 +1,1303 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "codegraph-starlight",
+    "languages": [
+      "astro",
+      "css",
+      "javascript",
+      "json",
+      "markdown",
+      "typescript",
+      "yaml"
+    ],
+    "frameworks": [
+      "Astro",
+      "Starlight",
+      "GitHub Actions"
+    ],
+    "description": "codegraph 的中文文件網站，以 Astro + Starlight 建置並部署於 GitHub Pages，涵蓋快速入門、核心概念、使用指南與 API 參考。",
+    "analyzedAt": "2026-05-27T02:52:26.630Z",
+    "gitCommitHash": "e8ca06692a953dbff671604bf59b5915dd3d31fc"
+  },
+  "nodes": [
+    {
+      "id": "pipeline:.github/workflows/deploy.yml",
+      "type": "pipeline",
+      "name": "deploy.yml",
+      "filePath": ".github/workflows/deploy.yml",
+      "summary": "GitHub Actions CI/CD workflow，在推送至 main 分支或手動觸發時，使用 pnpm 建置 Astro + Starlight 文件站，並自動部署至 GitHub Pages。",
+      "tags": [
+        "ci-cd",
+        "deployment",
+        "infrastructure",
+        "github-actions",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "step:.github/workflows/deploy.yml:build",
+      "type": "pipeline",
+      "name": "build",
+      "filePath": ".github/workflows/deploy.yml",
+      "summary": "建置 job：checkout 程式碼、設定 Node.js 22、以 pnpm 安裝相依套件並執行 pnpm build，最後上傳 dist/ 目錄為 Pages artifact。",
+      "tags": [
+        "build-system",
+        "ci-cd",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "step:.github/workflows/deploy.yml:deploy",
+      "type": "pipeline",
+      "name": "deploy",
+      "filePath": ".github/workflows/deploy.yml",
+      "summary": "部署 job：依賴 build job 完成後，使用 actions/deploy-pages 將 artifact 發佈至 GitHub Pages 環境。",
+      "tags": [
+        "deployment",
+        "ci-cd",
+        "infrastructure"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.en.md",
+      "type": "document",
+      "name": "README.en.md",
+      "filePath": "README.en.md",
+      "summary": "英文版專案說明文件，源自 Astro Starlight 起始模板，介紹專案結構、常用指令（dev/build/preview）與延伸學習資源，供非中文使用者參考。",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "astro",
+        "starlight"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "專案中文主文件，說明 codegraph 文件站的用途（本地優先程式碼知識圖譜工具的中文文件網站），涵蓋專案結構、常用 pnpm 指令、GitHub Actions 自動部署流程與參考連結。",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "專案套件設定檔，定義 Astro + Starlight 文件站的相依套件（astro ^6.3.1、@astrojs/starlight ^0.39.2）、建置指令（dev/build/preview）及 pnpm lockfilePolicy 設定。",
+      "tags": [
+        "configuration",
+        "build-system",
+        "astro",
+        "package-management"
+      ],
+      "complexity": "simple",
+      "languageNotes": "使用 pnpm 作為套件管理器，並設定 minimumReleaseAge: \"0\" 以解除 CI 建置時的版本限制。"
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "TypeScript 編譯器設定，繼承 Astro 提供的 strict 嚴格模式設定，包含 .astro 自動產生的型別定義，並排除 dist 建置輸出目錄。",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/core-concepts/how-it-works.md",
+      "type": "document",
+      "name": "how-it-works.md",
+      "filePath": "src/content/docs/core-concepts/how-it-works.md",
+      "summary": "說明 CodeGraph 將原始碼轉換為可查詢圖形的四個階段：Extraction（tree-sitter 解析）、Storage（SQLite 本地資料庫）、Resolution（參照解析）以及 Auto-sync（OS 原生檔案事件監聽）。",
+      "tags": [
+        "documentation",
+        "architecture",
+        "pipeline",
+        "core-concepts"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/core-concepts/knowledge-graph.md",
+      "type": "document",
+      "name": "knowledge-graph.md",
+      "filePath": "src/content/docs/core-concepts/knowledge-graph.md",
+      "summary": "定義 CodeGraph 知識圖譜的完整詞彙，包含所有 node kinds（如 function、class、component 等）與 edge kinds（如 calls、imports、implements 等），並說明 AST 衍生邊與啟發式合成邊（provenance: heuristic）的區別及查詢方式。",
+      "tags": [
+        "documentation",
+        "schema-definition",
+        "core-concepts",
+        "api-schema"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/core-concepts/resolution.md",
+      "type": "document",
+      "name": "resolution.md",
+      "filePath": "src/content/docs/core-concepts/resolution.md",
+      "summary": "說明 CodeGraph 的參照解析機制，涵蓋 import 路徑解析（含 tsconfig path alias 與 cargo workspace）、繼承關係連結、Web 框架路由識別，以及針對動態派發邊界（callback、EventEmitter、React re-render、JSX child、Django ORM）的合成器橋接策略。",
+      "tags": [
+        "documentation",
+        "core-concepts",
+        "framework-integration",
+        "resolution"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/getting-started/configuration.md",
+      "type": "document",
+      "name": "configuration.md",
+      "filePath": "src/content/docs/getting-started/configuration.md",
+      "summary": "說明 CodeGraph 零設定（zero-config）的運作原理：自動透過 `.gitignore` 排除不需索引的檔案，並說明本地資料存放於專案根目錄的 `.codegraph/` 資料夾中。",
+      "tags": [
+        "documentation",
+        "configuration",
+        "zero-config",
+        "getting-started"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/getting-started/installation.md",
+      "type": "document",
+      "name": "installation.md",
+      "filePath": "src/content/docs/getting-started/installation.md",
+      "summary": "完整的安裝指南，涵蓋互動式與非互動式（CI/腳本）兩種安裝方式、支援的 AI 編輯器（Claude Code、Cursor、Codex CLI 等）、跨平台支援說明，以及解除安裝步驟。",
+      "tags": [
+        "documentation",
+        "installation",
+        "getting-started",
+        "configuration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:src/content/docs/getting-started/introduction.md",
+      "type": "document",
+      "name": "introduction.md",
+      "filePath": "src/content/docs/getting-started/introduction.md",
+      "summary": "介紹 CodeGraph 作為本地優先程式碼智慧工具的核心概念，說明其如何透過預建知識圖譜讓 AI 編輯器減少 35–71% 的 token 消耗、工具呼叫次數與執行時間。",
+      "tags": [
+        "documentation",
+        "getting-started",
+        "overview",
+        "entry-point"
+      ],
+      "complexity": "simple",
+      "languageNotes": "引用了跨 7 個真實開源專案的基準測試數據，強調本地隱私（100% local）與無需 LLM 摘要的確定性 AST 萃取。"
+    },
+    {
+      "id": "document:src/content/docs/getting-started/next-steps.md",
+      "type": "document",
+      "name": "next-steps.md",
+      "filePath": "src/content/docs/getting-started/next-steps.md",
+      "summary": "安裝並建立圖譜後的導覽頁，以三個分類（了解模型、實際應用、參考文件）整理並連結至核心概念、操作指南與 API/CLI/MCP 參考文件。",
+      "tags": [
+        "documentation",
+        "getting-started",
+        "navigation",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/getting-started/quickstart.md",
+      "type": "document",
+      "name": "quickstart.md",
+      "filePath": "src/content/docs/getting-started/quickstart.md",
+      "summary": "最快速的 CodeGraph 入門頁面，提供無需 Node.js 的 shell/PowerShell 安裝指令以及 npm 替代方案，並帶領使用者以一個指令完成專案初始化。",
+      "tags": [
+        "documentation",
+        "getting-started",
+        "quickstart",
+        "installation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/getting-started/your-first-graph.md",
+      "type": "document",
+      "name": "your-first-graph.md",
+      "filePath": "src/content/docs/getting-started/your-first-graph.md",
+      "summary": "引導使用者完成首次建立 CodeGraph 知識圖譜的全流程，包含索引建立、健康狀態確認（`codegraph status`）、執行查詢指令，以及將圖譜交由 AI 代理自動使用。",
+      "tags": [
+        "documentation",
+        "getting-started",
+        "tutorial",
+        "knowledge-graph"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/guides/affected-tests.md",
+      "type": "document",
+      "name": "affected-tests.md",
+      "filePath": "src/content/docs/guides/affected-tests.md",
+      "summary": "說明 `codegraph affected` 指令如何透過遞移式依賴追蹤，找出受變更影響的測試檔案，並提供 CLI 選項與 CI hook 整合範例。",
+      "tags": [
+        "documentation",
+        "ci-cd",
+        "testing",
+        "codegraph"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/guides/framework-routes.md",
+      "type": "document",
+      "name": "framework-routes.md",
+      "filePath": "src/content/docs/guides/framework-routes.md",
+      "summary": "說明 CodeGraph 如何自動識別各主流 Web 框架的路由定義，將 URL 模式以 `route` 節點和 `references` 邊連結至對應的 handler，涵蓋 Django、Flask、FastAPI、NestJS、Rails、Spring 等共 14 種框架。",
+      "tags": [
+        "documentation",
+        "api-schema",
+        "framework-routes",
+        "codegraph"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/guides/indexing.md",
+      "type": "document",
+      "name": "indexing.md",
+      "filePath": "src/content/docs/guides/indexing.md",
+      "summary": "介紹 codegraph 的索引機制，包含初始化全量索引、增量 sync、MCP server 自動監聽，以及 `status` 指令的使用方式，說明哪些檔案會被納入索引範圍。",
+      "tags": [
+        "documentation",
+        "configuration",
+        "codegraph",
+        "database"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/reference/api.md",
+      "type": "document",
+      "name": "api.md",
+      "filePath": "src/content/docs/reference/api.md",
+      "summary": "CodeGraph TypeScript API 參考文件，說明 `CodeGraph` 類別的公開介面，包含初始化、索引建立、符號搜尋、呼叫圖走訪、影響分析及 AI context 建構等核心方法。",
+      "tags": [
+        "documentation",
+        "api-schema",
+        "typescript",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/reference/cli.md",
+      "type": "document",
+      "name": "cli.md",
+      "filePath": "src/content/docs/reference/cli.md",
+      "summary": "CodeGraph CLI 完整命令參考，涵蓋安裝、初始化、索引、查詢、呼叫圖、影響分析及 MCP server 啟動等所有指令及其旗標。",
+      "tags": [
+        "documentation",
+        "reference",
+        "cli",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/reference/integrations.md",
+      "type": "document",
+      "name": "integrations.md",
+      "filePath": "src/content/docs/reference/integrations.md",
+      "summary": "CodeGraph 整合指南，列出支援的 AI agent（Claude Code、Cursor、Codex CLI 等），並提供手動設定 MCP server 的 JSON 配置範例與 Cursor 路徑注意事項。",
+      "tags": [
+        "documentation",
+        "reference",
+        "configuration",
+        "integration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:src/content/docs/reference/languages.md",
+      "type": "document",
+      "name": "languages.md",
+      "filePath": "src/content/docs/reference/languages.md",
+      "summary": "列出 CodeGraph 完整支援的程式語言清單（共 21 種），包含各語言對應的副檔名與支援狀態，語言偵測依副檔名自動進行無需額外設定。",
+      "tags": [
+        "documentation",
+        "reference",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/reference/mcp-server.md",
+      "type": "document",
+      "name": "mcp-server.md",
+      "filePath": "src/content/docs/reference/mcp-server.md",
+      "summary": "說明 CodeGraph MCP Server 對 AI agent 公開的工具清單，涵蓋符號搜尋、context 建構、呼叫鏈追蹤、影響分析等工具，並說明 agent 應優先使用 CodeGraph 而非 grep/Read 的理由。",
+      "tags": [
+        "documentation",
+        "reference",
+        "api-schema",
+        "integration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/core-concepts/how-it-works.md",
+      "type": "document",
+      "name": "how-it-works.md",
+      "filePath": "src/content/docs/zh/core-concepts/how-it-works.md",
+      "summary": "說明 CodeGraph 將原始碼轉換為可查詢圖形的四個階段：提取（tree-sitter AST 解析）、儲存（SQLite + FTS5）、解析（參考連結與框架模式）、以及透過作業系統檔案事件實現的自動增量同步。",
+      "tags": [
+        "documentation",
+        "核心概念",
+        "架構說明",
+        "工作原理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/core-concepts/knowledge-graph.md",
+      "type": "document",
+      "name": "knowledge-graph.md",
+      "filePath": "src/content/docs/zh/core-concepts/knowledge-graph.md",
+      "summary": "定義 CodeGraph 知識圖譜的資料模型，涵蓋 22 種節點種類、12 種邊的種類，以及區分 AST 直接邊與動態合成邊（heuristic provenance）的來源標記機制，並說明搜尋、呼叫圖遍歷、影響範圍分析等查詢方式。",
+      "tags": [
+        "documentation",
+        "核心概念",
+        "schema-definition",
+        "知識圖譜"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/core-concepts/resolution.md",
+      "type": "document",
+      "name": "resolution.md",
+      "filePath": "src/content/docs/zh/core-concepts/resolution.md",
+      "summary": "說明 CodeGraph 的解析流程，包含匯入路徑解析（含 tsconfig 別名與 cargo workspace）、呼叫定義連結、繼承關係、框架路由感知，以及針對回呼、EventEmitter、React、JSX 子元件、Django ORM 等動態分派邊界的合成器覆蓋機制。",
+      "tags": [
+        "documentation",
+        "核心概念",
+        "解析機制",
+        "框架整合"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/getting-started/configuration.md",
+      "type": "document",
+      "name": "configuration.md",
+      "filePath": "src/content/docs/zh/getting-started/configuration.md",
+      "summary": "說明 CodeGraph 零設定設計原則的文件，涵蓋 .gitignore 遵守機制、大型檔案略過規則，以及本地 SQLite 資料儲存位置。",
+      "tags": [
+        "文件",
+        "設定",
+        "zero-config",
+        "本地優先"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/getting-started/installation.md",
+      "type": "document",
+      "name": "installation.md",
+      "filePath": "src/content/docs/zh/getting-started/installation.md",
+      "summary": "完整的安裝指南，涵蓋互動式與非互動式安裝模式、支援平台（Windows/macOS/Linux x64/arm64）、各 AI 代理人的 MCP 伺服器設定，以及解除安裝步驟。",
+      "tags": [
+        "文件",
+        "安裝",
+        "入門指南",
+        "mcp"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:src/content/docs/zh/getting-started/introduction.md",
+      "type": "document",
+      "name": "introduction.md",
+      "filePath": "src/content/docs/zh/getting-started/introduction.md",
+      "summary": "CodeGraph 的概念簡介，解釋其本地優先的程式碼智慧架構、知識圖譜內容（符號、邊、檔案），以及在真實 benchmark 中為 AI 代理人節省 35% 費用、57% token 和 46% 時間的效益。",
+      "tags": [
+        "文件",
+        "簡介",
+        "概念說明",
+        "入門指南"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/getting-started/next-steps.md",
+      "type": "document",
+      "name": "next-steps.md",
+      "filePath": "src/content/docs/zh/getting-started/next-steps.md",
+      "summary": "入門後的導航頁，整理了核心概念（運作原理、知識圖譜、解析）、實作指南（索引、框架路由、CI 測試），以及 MCP 伺服器、CLI 和 API 參考資料的連結。",
+      "tags": [
+        "文件",
+        "導航",
+        "入門指南",
+        "索引頁"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/getting-started/quickstart.md",
+      "type": "document",
+      "name": "quickstart.md",
+      "filePath": "src/content/docs/zh/getting-started/quickstart.md",
+      "summary": "快速開始指南，提供 macOS/Linux/Windows 的一鍵安裝指令及 npm 安裝替代方案，並示範 codegraph init -i 初始化專案的最短操作流程。",
+      "tags": [
+        "文件",
+        "快速開始",
+        "安裝",
+        "入門指南"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/getting-started/your-first-graph.md",
+      "type": "document",
+      "name": "your-first-graph.md",
+      "filePath": "src/content/docs/zh/getting-started/your-first-graph.md",
+      "summary": "逐步引導使用者建立第一個程式碼圖譜的教學，涵蓋索引（init/index/sync）、狀態確認（status）和查詢指令（query/callers/callees/impact/context），並說明代理人自動使用 MCP 工具的機制。",
+      "tags": [
+        "文件",
+        "教學",
+        "入門指南",
+        "知識圖譜"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/guides/affected-tests.md",
+      "type": "document",
+      "name": "affected-tests.md",
+      "filePath": "src/content/docs/zh/guides/affected-tests.md",
+      "summary": "說明 `codegraph affected` 指令如何在 CI 環境中透過遞迴追蹤匯入相依關係，找出受程式碼變更影響的測試檔案，並提供 CLI 選項與 bash hook 範例。",
+      "tags": [
+        "文件",
+        "ci-cd",
+        "測試",
+        "指令列"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/guides/framework-routes.md",
+      "type": "document",
+      "name": "framework-routes.md",
+      "filePath": "src/content/docs/zh/guides/framework-routes.md",
+      "summary": "介紹 CodeGraph 自動偵測多種 Web 框架（Django、Flask、FastAPI、Express、NestJS、Laravel、Rails、Spring 等）的路由定義，並以 `route` 節點與 `references` 邊連結對應處理器的功能說明。",
+      "tags": [
+        "文件",
+        "路由",
+        "框架整合",
+        "圖譜"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/guides/indexing.md",
+      "type": "document",
+      "name": "indexing.md",
+      "filePath": "src/content/docs/zh/guides/indexing.md",
+      "summary": "說明 codegraph 的初始化、完整索引、增量同步（`sync`）與自動檔案監控機制，並介紹 `status` 指令與索引涵蓋範圍的設定規則。",
+      "tags": [
+        "文件",
+        "索引",
+        "指令列",
+        "設定"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/reference/api.md",
+      "type": "document",
+      "name": "api.md",
+      "filePath": "src/content/docs/zh/reference/api.md",
+      "summary": "CodeGraph TypeScript API 參考文件，涵蓋 `CodeGraph` 類別的所有主要方法，包含初始化、索引、符號搜尋、呼叫圖遍歷、影響範圍分析與 AI 上下文建構。",
+      "tags": [
+        "documentation",
+        "api-schema",
+        "typescript",
+        "參考文件"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/reference/cli.md",
+      "type": "document",
+      "name": "cli.md",
+      "filePath": "src/content/docs/zh/reference/cli.md",
+      "summary": "CodeGraph CLI 指令完整參考，列出所有子指令（init、index、sync、query、callers、callees、impact、affected、serve 等）及其可用旗標。",
+      "tags": [
+        "documentation",
+        "cli",
+        "參考文件",
+        "指令列"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/reference/integrations.md",
+      "type": "document",
+      "name": "integrations.md",
+      "filePath": "src/content/docs/zh/reference/integrations.md",
+      "summary": "CodeGraph 整合文件，列出支援的 AI agent（Claude Code、Cursor、Codex CLI 等），並說明互動式自動設定與手動 MCP 伺服器設定方式。",
+      "tags": [
+        "documentation",
+        "整合",
+        "mcp-server",
+        "configuration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:src/content/docs/zh/reference/languages.md",
+      "type": "document",
+      "name": "languages.md",
+      "filePath": "src/content/docs/zh/reference/languages.md",
+      "summary": "CodeGraph 語言支援參考表，列出所有 21 種已支援的程式語言、對應副檔名及支援狀態，無需手動設定即可自動識別。",
+      "tags": [
+        "documentation",
+        "語言支援",
+        "參考文件",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/reference/mcp-server.md",
+      "type": "document",
+      "name": "mcp-server.md",
+      "filePath": "src/content/docs/zh/reference/mcp-server.md",
+      "summary": "CodeGraph MCP 伺服器工具參考，說明透過 Model Context Protocol 提供給 AI agent 的所有工具（search、context、trace、callers、callees、impact 等）及使用建議。",
+      "tags": [
+        "documentation",
+        "mcp-server",
+        "api-schema",
+        "參考文件"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.understand-anything/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": "定義 understand-anything 分析工具排除特定檔案和目錄的規則，語法與 .gitignore 相同，目前所有模式均以注解形式提供作為建議參考。",
+      "tags": [
+        "configuration",
+        "build-system",
+        "ignore-rules"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.understand-anything/config.json",
+      "type": "config",
+      "name": "config.json",
+      "filePath": ".understand-anything/config.json",
+      "summary": "understand-anything 工具的輸出語言設定，指定所有產出內容以繁體中文（zh-TW）呈現。",
+      "tags": [
+        "configuration",
+        "localization",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:astro.config.mjs",
+      "type": "file",
+      "name": "astro.config.mjs",
+      "filePath": "astro.config.mjs",
+      "summary": "Astro 專案的主要設定檔，配置 Starlight 文件主題，包含多語系（英文與繁體中文）、自訂字體、自訂元件、程式碼高亮主題以及完整的側邊欄導覽結構，部署至 GitHub Pages 的 /codegraph-starlight 路徑。",
+      "tags": [
+        "configuration",
+        "build-system",
+        "entry-point",
+        "infrastructure"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "使用 ESM 模組格式（.mjs），透過 Starlight integration 統一管理文件站台的所有設定，包含 sidebar 結構、locales、customCss 與自訂元件覆寫。"
+    },
+    {
+      "id": "file:src/components/GraphDiagram.astro",
+      "type": "file",
+      "name": "GraphDiagram.astro",
+      "filePath": "src/components/GraphDiagram.astro",
+      "summary": "首頁 hero 區塊的 SVG 節點連結圖示元件，以手工排版的扁平藍圖風格呈現程式碼知識圖譜，採用墨水線條與空心節點，不使用漸層或動態效果，hover 時節點填滿墨色。",
+      "tags": [
+        "component",
+        "utility",
+        "markup"
+      ],
+      "complexity": "simple",
+      "languageNotes": "純 SVG 靜態元件，無 frontmatter 邏輯，所有視覺效果透過 CSS 變數（--cg-ink、--cg-paper）實現主題切換。"
+    },
+    {
+      "id": "file:src/components/SiteTitle.astro",
+      "type": "file",
+      "name": "SiteTitle.astro",
+      "filePath": "src/components/SiteTitle.astro",
+      "summary": "Starlight header 中的站台名稱（wordmark）元件，覆寫 Starlight 預設的 SiteTitle，將文字連結到網站根目錄的首頁，並套用自訂的粗體排版樣式。",
+      "tags": [
+        "component",
+        "entry-point",
+        "utility"
+      ],
+      "complexity": "simple",
+      "languageNotes": "使用 Astro.locals.starlightRoute 取得路由資料（Starlight 0.39+ 的新 API），並動態讀取 BASE_URL 以支援 GitHub Pages 的子路徑部署。"
+    },
+    {
+      "id": "file:src/components/SocialIcons.astro",
+      "type": "file",
+      "name": "SocialIcons.astro",
+      "filePath": "src/components/SocialIcons.astro",
+      "summary": "覆寫 Starlight 預設的 SocialIcons 元件，在文件 header 右側加入 Docs、Languages 文字導覽連結以及即時顯示 GitHub star 數的徽章，在行動裝置上自動隱藏以保持版面整潔。",
+      "tags": [
+        "component",
+        "utility",
+        "api-handler"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "使用 async/await 在建置時呼叫 GitHub API 取得 star 數，透過 {...Astro.props} 傳遞 props 給 Starlight 的預設元件以保留原有功能。"
+    },
+    {
+      "id": "file:src/content.config.ts",
+      "type": "file",
+      "name": "content.config.ts",
+      "filePath": "src/content.config.ts",
+      "summary": "Astro 內容集合設定，使用 Starlight 提供的 docsLoader 與 docsSchema 定義文件集合，作為整個文件站台內容架構的入口點。",
+      "tags": [
+        "configuration",
+        "entry-point",
+        "schema-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/troubleshooting.md",
+      "type": "document",
+      "name": "troubleshooting.md",
+      "filePath": "src/content/docs/troubleshooting.md",
+      "summary": "英文版疑難排解文件，涵蓋 CodeGraph 最常見的四個問題：初始化未完成、索引速度緩慢、SQLite database locked 以及 MCP 伺服器連線失敗，並提供具體的解決步驟。",
+      "tags": [
+        "documentation",
+        "troubleshooting"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/content/docs/zh/troubleshooting.md",
+      "type": "document",
+      "name": "troubleshooting.md",
+      "filePath": "src/content/docs/zh/troubleshooting.md",
+      "summary": "繁體中文版疑難排解文件，對應英文版相同的四個常見問題，提供本地化的說明與解決方式，包含安裝指令與 WAL 模式的詳細解釋。",
+      "tags": [
+        "documentation",
+        "troubleshooting",
+        "localization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/github.ts",
+      "type": "file",
+      "name": "github.ts",
+      "filePath": "src/lib/github.ts",
+      "summary": "建置時期的 GitHub star 數取得工具，透過 GitHub API 取得 codegraph 倉庫的 star 數並格式化為人類可讀字串（如 22k），結果在建置期間記憶體快取以避免重複呼叫，離線時自動回退至預設值。",
+      "tags": [
+        "utility",
+        "api-handler",
+        "service"
+      ],
+      "complexity": "simple",
+      "languageNotes": "使用 nullish assignment（??=）實現單例快取模式，搭配 AbortController 設定 3 秒超時以防止建置掛起。"
+    },
+    {
+      "id": "function:src/lib/github.ts:getStarsLabel",
+      "type": "function",
+      "name": "getStarsLabel",
+      "filePath": "src/lib/github.ts",
+      "lineRange": [
+        39,
+        42
+      ],
+      "summary": "公開 API 函式，回傳快取的 GitHub star 數 Promise，預設 fallback 為 '22k'，確保每次建置只呼叫一次 GitHub API。",
+      "tags": [
+        "utility",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/pages/index.astro",
+      "type": "file",
+      "name": "index.astro",
+      "filePath": "src/pages/index.astro",
+      "summary": "網站首頁，包含完整的 HTML 結構、導覽列、hero 區塊（含 GraphDiagram 元件）、三個功能特色卡片以及頁尾，採用扁平編輯設計風格，並包含安裝指令的複製到剪貼簿功能。",
+      "tags": [
+        "entry-point",
+        "component",
+        "markup"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Astro 頁面，在 frontmatter 中以 async/await 取得 star 數，內嵌 <script> 標籤處理客戶端剪貼簿互動，所有樣式以 <style> 標籤內嵌，使用 CSS Grid 實現響應式版型。"
+    },
+    {
+      "id": "file:src/styles/theme.css",
+      "type": "file",
+      "name": "theme.css",
+      "filePath": "src/styles/theme.css",
+      "summary": "codegraph 的全站主題 CSS，定義扁平墨水紙張風格的設計語言，包含明暗模式的完整 CSS 自訂屬性、Starlight 元件樣式覆寫（header、sidebar、pagination、程式碼區塊）以及響應式排版調整。",
+      "tags": [
+        "configuration",
+        "component",
+        "markup"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "使用 CSS 自訂屬性（--cg-* 與 --sl-*）實現主題系統，透過 :root[data-theme='dark'] 選擇器支援暗色模式，以 !important 強制套用無圓角設計。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "pipeline:.github/workflows/deploy.yml",
+      "target": "step:.github/workflows/deploy.yml:build",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "pipeline:.github/workflows/deploy.yml",
+      "target": "step:.github/workflows/deploy.yml:deploy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "document:README.md",
+      "target": "config:package.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.en.md",
+      "target": "config:package.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "config:tsconfig.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.en.md",
+      "target": "config:tsconfig.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/core-concepts/how-it-works.md",
+      "target": "document:src/content/docs/core-concepts/resolution.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/core-concepts/how-it-works.md",
+      "target": "document:src/content/docs/core-concepts/knowledge-graph.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/core-concepts/resolution.md",
+      "target": "document:src/content/docs/core-concepts/knowledge-graph.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/getting-started/quickstart.md",
+      "target": "document:src/content/docs/getting-started/installation.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/getting-started/quickstart.md",
+      "target": "document:src/content/docs/getting-started/your-first-graph.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/getting-started/your-first-graph.md",
+      "target": "document:src/content/docs/getting-started/installation.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/getting-started/introduction.md",
+      "target": "document:src/content/docs/getting-started/quickstart.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/getting-started/next-steps.md",
+      "target": "document:src/content/docs/getting-started/installation.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/getting-started/next-steps.md",
+      "target": "document:src/content/docs/getting-started/your-first-graph.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/reference/integrations.md",
+      "target": "document:src/content/docs/reference/mcp-server.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/reference/cli.md",
+      "target": "document:src/content/docs/reference/mcp-server.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/reference/api.md",
+      "target": "document:src/content/docs/reference/mcp-server.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/zh/core-concepts/how-it-works.md",
+      "target": "document:src/content/docs/zh/core-concepts/resolution.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/zh/core-concepts/knowledge-graph.md",
+      "target": "document:src/content/docs/zh/core-concepts/resolution.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/zh/getting-started/introduction.md",
+      "target": "document:src/content/docs/zh/getting-started/quickstart.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/zh/getting-started/quickstart.md",
+      "target": "document:src/content/docs/zh/getting-started/your-first-graph.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/zh/getting-started/quickstart.md",
+      "target": "document:src/content/docs/zh/getting-started/installation.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/zh/getting-started/your-first-graph.md",
+      "target": "document:src/content/docs/zh/getting-started/installation.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/zh/getting-started/next-steps.md",
+      "target": "document:src/content/docs/zh/getting-started/installation.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/zh/reference/cli.md",
+      "target": "document:src/content/docs/zh/reference/mcp-server.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/zh/reference/integrations.md",
+      "target": "document:src/content/docs/zh/reference/mcp-server.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/zh/reference/api.md",
+      "target": "document:src/content/docs/zh/reference/cli.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/lib/github.ts",
+      "target": "function:src/lib/github.ts:getStarsLabel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/github.ts",
+      "target": "function:src/lib/github.ts:getStarsLabel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:astro.config.mjs",
+      "target": "file:src/components/SiteTitle.astro",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:astro.config.mjs",
+      "target": "file:src/components/SocialIcons.astro",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:astro.config.mjs",
+      "target": "file:src/styles/theme.css",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/pages/index.astro",
+      "target": "file:src/components/GraphDiagram.astro",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/pages/index.astro",
+      "target": "file:src/lib/github.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/pages/index.astro",
+      "target": "file:src/styles/theme.css",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/components/SocialIcons.astro",
+      "target": "file:src/lib/github.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/pages/index.astro",
+      "target": "function:src/lib/github.ts:getStarsLabel",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/SocialIcons.astro",
+      "target": "function:src/lib/github.ts:getStarsLabel",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/styles/theme.css",
+      "target": "file:src/pages/index.astro",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:.understand-anything/config.json",
+      "target": "file:.understand-anything/.understandignore",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/content/docs/troubleshooting.md",
+      "target": "document:src/content/docs/zh/troubleshooting.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/content.config.ts",
+      "target": "document:src/content/docs/troubleshooting.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/content.config.ts",
+      "target": "document:src/content/docs/zh/troubleshooting.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:ci-cd",
+      "name": "CI/CD 自動化層",
+      "description": "GitHub Actions 工作流程，負責在推送至 main 分支時自動建置 Astro 文件站並部署至 GitHub Pages。",
+      "nodeIds": [
+        "pipeline:.github/workflows/deploy.yml",
+        "step:.github/workflows/deploy.yml:build",
+        "step:.github/workflows/deploy.yml:deploy"
+      ]
+    },
+    {
+      "id": "layer:config",
+      "name": "專案設定層",
+      "description": "Astro + Starlight 站台的核心設定，包含套件管理、TypeScript 編譯器選項、網站結構設定，以及專案根目錄的說明文件。",
+      "nodeIds": [
+        "config:package.json",
+        "config:tsconfig.json",
+        "file:astro.config.mjs",
+        "document:README.md",
+        "document:README.en.md",
+        "file:.understand-anything/.understandignore",
+        "config:.understand-anything/config.json"
+      ]
+    },
+    {
+      "id": "layer:ui",
+      "name": "UI 元件層",
+      "description": "構成網站前端介面的 Astro 元件、首頁頁面與全站 CSS 設計系統，涵蓋知識圖譜視覺化、網站標題與社群連結圖示。",
+      "nodeIds": [
+        "file:src/components/GraphDiagram.astro",
+        "file:src/components/SiteTitle.astro",
+        "file:src/components/SocialIcons.astro",
+        "file:src/pages/index.astro",
+        "file:src/styles/theme.css"
+      ]
+    },
+    {
+      "id": "layer:utility",
+      "name": "工具程式層",
+      "description": "提供跨元件共用的工具函數與內容集合設定，包含 GitHub API 查詢工具及 Starlight docs 集合的 schema 定義。",
+      "nodeIds": [
+        "file:src/lib/github.ts",
+        "file:src/content.config.ts"
+      ]
+    },
+    {
+      "id": "layer:docs-en",
+      "name": "英文文件層",
+      "description": "codegraph 工具的英文版官方文件，涵蓋入門指南、核心概念、使用手冊與 API／CLI 參考資料。",
+      "nodeIds": [
+        "document:src/content/docs/core-concepts/how-it-works.md",
+        "document:src/content/docs/core-concepts/knowledge-graph.md",
+        "document:src/content/docs/core-concepts/resolution.md",
+        "document:src/content/docs/getting-started/configuration.md",
+        "document:src/content/docs/getting-started/installation.md",
+        "document:src/content/docs/getting-started/introduction.md",
+        "document:src/content/docs/getting-started/next-steps.md",
+        "document:src/content/docs/getting-started/quickstart.md",
+        "document:src/content/docs/getting-started/your-first-graph.md",
+        "document:src/content/docs/guides/affected-tests.md",
+        "document:src/content/docs/guides/framework-routes.md",
+        "document:src/content/docs/guides/indexing.md",
+        "document:src/content/docs/reference/api.md",
+        "document:src/content/docs/reference/cli.md",
+        "document:src/content/docs/reference/integrations.md",
+        "document:src/content/docs/reference/languages.md",
+        "document:src/content/docs/reference/mcp-server.md",
+        "document:src/content/docs/troubleshooting.md"
+      ]
+    },
+    {
+      "id": "layer:docs-zh",
+      "name": "中文文件層",
+      "description": "codegraph 工具的繁體中文版文件，與英文版內容結構對應，提供入門指南、核心概念、使用手冊與 API／CLI 參考資料的在地化版本。",
+      "nodeIds": [
+        "document:src/content/docs/zh/core-concepts/how-it-works.md",
+        "document:src/content/docs/zh/core-concepts/knowledge-graph.md",
+        "document:src/content/docs/zh/core-concepts/resolution.md",
+        "document:src/content/docs/zh/getting-started/configuration.md",
+        "document:src/content/docs/zh/getting-started/installation.md",
+        "document:src/content/docs/zh/getting-started/introduction.md",
+        "document:src/content/docs/zh/getting-started/next-steps.md",
+        "document:src/content/docs/zh/getting-started/quickstart.md",
+        "document:src/content/docs/zh/getting-started/your-first-graph.md",
+        "document:src/content/docs/zh/guides/affected-tests.md",
+        "document:src/content/docs/zh/guides/framework-routes.md",
+        "document:src/content/docs/zh/guides/indexing.md",
+        "document:src/content/docs/zh/reference/api.md",
+        "document:src/content/docs/zh/reference/cli.md",
+        "document:src/content/docs/zh/reference/integrations.md",
+        "document:src/content/docs/zh/reference/languages.md",
+        "document:src/content/docs/zh/reference/mcp-server.md",
+        "document:src/content/docs/zh/troubleshooting.md"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "專案總覽",
+      "description": "從 README.md 出發，了解這個專案的定位：codegraph 是一個本地優先的程式碼智慧工具，而本站是它的中文文件網站，以 Astro + Starlight 建置並部署於 GitHub Pages。這份文件說明了整個專案的用途、技術架構與貢獻方式，是進入程式碼之前最重要的一步。",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "專案設定與依賴",
+      "description": "package.json 定義了本站所有相依套件（Astro、Starlight）與 pnpm 建置指令，是了解技術選型的起點。tsconfig.json 繼承 Astro strict 模式，為整個 TypeScript 開發環境設定型別檢查的嚴格度。兩者合在一起，描繪出這個文件站的技術底座。",
+      "nodeIds": [
+        "config:package.json",
+        "config:tsconfig.json"
+      ],
+      "languageLesson": "Astro 專案使用 pnpm 作為套件管理器，並透過 tsconfig.json 的 extends 繼承官方推薦的嚴格型別設定（`astro/tsconfigs/strict`），確保元件型別安全。"
+    },
+    {
+      "order": 3,
+      "title": "Astro 核心設定",
+      "description": "astro.config.mjs 是整個網站架構的控制中心，扇出（fan-out）最高，直接決定了哪些自訂元件被注入 Starlight、字型與 favicon 如何載入、側邊欄導航結構以及多語系（i18n）路由如何運作。理解這個檔案，就能掌握網站的完整骨架——後續每一個 UI 元件都從這裡被掛載進來。",
+      "nodeIds": [
+        "file:astro.config.mjs"
+      ],
+      "languageLesson": "Astro 的設定檔使用 `.mjs` 副檔名表示 ES Module。Starlight 整合透過 `starlight({ ... })` 函式傳入，其中的 `components` 欄位可以覆寫預設元件，實現深度客製化。"
+    },
+    {
+      "order": 4,
+      "title": "首頁入口點",
+      "description": "src/pages/index.astro 是網站的程式碼入口，fan-out 與 astro.config.mjs 並列最高，它組合了 GraphDiagram、SocialIcons、github 工具函數與全站樣式，在單一頁面中整合了 hero 區塊、互動視覺化展示與頁腳。瀏覽這個檔案，就能看到所有 UI 子元件是如何被組裝成完整首頁的。",
+      "nodeIds": [
+        "file:src/pages/index.astro"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "知識圖譜視覺化元件",
+      "description": "GraphDiagram.astro 是首頁最核心的視覺化元件，同時被 index.astro（imports）與 astro.config.mjs（configures）參考，fan-in 並列第一。它用 SVG 動態展示 CodeGraph 的圖資料結構，讓使用者直覺地感受到「程式碼知識圖譜」的概念。這個元件同時也是本站品牌識別的重要組成部分。",
+      "nodeIds": [
+        "file:src/components/GraphDiagram.astro"
+      ],
+      "languageLesson": "Astro 元件（.astro）由前置的 frontmatter script（`---` 區塊）與 HTML template 組成。SVG 可以直接嵌入 template 中，搭配 CSS animation 實現純靜態的互動效果，不需要 JavaScript framework。"
+    },
+    {
+      "order": 6,
+      "title": "社群圖示與 GitHub 工具",
+      "description": "SocialIcons.astro 負責顯示 GitHub star 數，它依賴 github.ts 提供的 API 工具函數——後者在整個 codebase 中 fan-in 最高（同時被 index.astro 與 SocialIcons 引用）。這個模組對展示社群活躍度至關重要，也示範了如何在 Astro 元件的 frontmatter 中呼叫外部 API。",
+      "nodeIds": [
+        "file:src/components/SocialIcons.astro",
+        "file:src/lib/github.ts"
+      ],
+      "languageLesson": "Astro 的 frontmatter（`---` 之間的程式碼）在建置時（或 SSR 時）於伺服器端執行，因此可以安全地呼叫外部 API（如 GitHub REST API）而不暴露 API key 給瀏覽器。"
+    },
+    {
+      "order": 7,
+      "title": "品牌標題列元件",
+      "description": "SiteTitle.astro 是 Starlight 導覽列的自訂標題元件，由 astro.config.mjs 的 `components.SiteTitle` 欄位掛載。它展示 codegraph 的品牌識別，讓整個文件站在視覺上與 codegraph 工具保持一致。這是 Starlight 元件覆寫（component override）機制的典型應用。",
+      "nodeIds": [
+        "file:src/components/SiteTitle.astro"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "全站設計系統",
+      "description": "theme.css 定義了整個文件站的視覺語言——字型（Noto Serif TC 等）、顏色（墨水紙張極簡風格）與版面配置。它同時被 index.astro 和 astro.config.mjs 引用，是 UI 元件層的基礎。了解這個檔案，就能理解為何整站有統一的排版風格。",
+      "nodeIds": [
+        "file:src/styles/theme.css"
+      ],
+      "languageLesson": "Starlight 使用 CSS 自定義屬性（CSS custom properties / variables）作為主題系統。覆寫 `--sl-*` 開頭的變數，可以全域調整顏色、字型與間距，而不需要修改元件本身。"
+    },
+    {
+      "order": 9,
+      "title": "內容集合設定",
+      "description": "src/content.config.ts 定義了 Starlight 的 `docs` 內容集合 schema，是所有 Markdown 文件（introduction、installation、quickstart 等）能被正確解析與型別驗證的基礎。它位於工具程式層，連結了設定層與文件層，確保每篇文件的 frontmatter 欄位符合預期格式。",
+      "nodeIds": [
+        "file:src/content.config.ts"
+      ],
+      "languageLesson": "Astro 的 Content Collections（內容集合）使用 Zod schema 驗證 Markdown frontmatter，提供型別安全的內容查詢。Starlight 封裝了這個機制，只需呼叫 `defineCollection({ loader: docsLoader() })` 即可啟用。"
+    },
+    {
+      "order": 10,
+      "title": "快速入門文件群",
+      "description": "getting-started 目錄下的三份文件（introduction、installation、quickstart）構成使用者進入 codegraph 的第一道門。introduction 說明工具定位，installation 提供完整安裝步驟，quickstart 則讓使用者在 5 分鐘內看到成果。quickstart 透過 related 邊連結 installation，引導使用者按順序閱讀。",
+      "nodeIds": [
+        "document:src/content/docs/getting-started/introduction.md",
+        "document:src/content/docs/getting-started/installation.md",
+        "document:src/content/docs/getting-started/quickstart.md"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "核心概念文件群",
+      "description": "core-concepts 目錄的兩份文件深入解釋 codegraph 的運作原理。how-it-works.md 說明 Extraction、Storage、Resolution、Auto-sync 四個階段；knowledge-graph.md 則詳細定義知識圖譜的資料模型——節點種類（檔案、函數、類別等）、邊的種類（imports、calls 等）與來源標記。這兩份文件是理解 codegraph 技術深度的關鍵。",
+      "nodeIds": [
+        "document:src/content/docs/core-concepts/how-it-works.md",
+        "document:src/content/docs/core-concepts/knowledge-graph.md"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "API 與 CLI 參考",
+      "description": "reference 目錄的兩份文件是開發者使用 codegraph 的完整參考手冊。api.md 列出 CodeGraph TypeScript 類別的所有公開方法，cli.md 提供每個命令與旗標的詳細說明。兩者透過 related 邊相互連結，反映出 API 與 CLI 是同一套功能的不同使用介面。",
+      "nodeIds": [
+        "document:src/content/docs/reference/api.md",
+        "document:src/content/docs/reference/cli.md"
+      ]
+    },
+    {
+      "order": 13,
+      "title": "CI/CD 自動化部署",
+      "description": "deploy.yml 是整個文件站生命週期的最後一環——當程式碼推送至 main 分支時，GitHub Actions 自動觸發此 workflow，使用 pnpm 安裝相依、建置 Astro 靜態網站，最後部署至 GitHub Pages。這個 pipeline 確保每次文件更新都能在數分鐘內上線，無需手動操作。",
+      "nodeIds": [
+        "pipeline:.github/workflows/deploy.yml"
+      ],
+      "languageLesson": "GitHub Actions workflow 的 `on` 觸發器可同時設定 `push`（自動觸發）與 `workflow_dispatch`（手動觸發）。Astro 靜態站部署使用官方的 `actions/deploy-pages` action，搭配 `actions/upload-pages-artifact` 打包建置產出物。"
+    }
+  ]
+}

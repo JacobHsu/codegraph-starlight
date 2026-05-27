@@ -1,0 +1,581 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "e8ca06692a953dbff671604bf59b5915dd3d31fc",
+  "generatedAt": "2026-05-27T02:56:54.299Z",
+  "files": {
+    ".github/workflows/deploy.yml": {
+      "filePath": ".github/workflows/deploy.yml",
+      "contentHash": "46db6e876d844a153e5e7bf06eb6c2df5dae13ceaa71533c8f74192f4bf455a5",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": true
+    },
+    "README.en.md": {
+      "filePath": "README.en.md",
+      "contentHash": "c437ce675f4c96e2548e7b09c84dd44acef6132e0df9393aa62caf1eae0e18dc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 57,
+      "hasStructuralAnalysis": true
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "4e8003d8a77a098a07ae60eb4074feb99f88d657516a9bb8868100da5a904517",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 50,
+      "hasStructuralAnalysis": true
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "adeb6312b989d33fb98d7a42c6e40a3ca98960a088695b1c2f5e3a4f196e74db",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.json": {
+      "filePath": "tsconfig.json",
+      "contentHash": "61fc24492db9aef7ec38eb91cfeebaef96155014bb5f22648fd8ed2327c6cae2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/core-concepts/how-it-works.md": {
+      "filePath": "src/content/docs/core-concepts/how-it-works.md",
+      "contentHash": "1bb2d4690770aa316bacd987d031198df5e1eaca92508f3d84d8820e055e1731",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/core-concepts/knowledge-graph.md": {
+      "filePath": "src/content/docs/core-concepts/knowledge-graph.md",
+      "contentHash": "d74c1550cf6cc5a4bc7e6e5081dea363ceb8de167704f27212a173d2bffc723b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/core-concepts/resolution.md": {
+      "filePath": "src/content/docs/core-concepts/resolution.md",
+      "contentHash": "ac9bdf1c11aba8576786d28003128238bec33488ea7b7a486519e64d57061c8d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/getting-started/configuration.md": {
+      "filePath": "src/content/docs/getting-started/configuration.md",
+      "contentHash": "6017f0e5577d955bc8db6849e8c28b098506a379a2ffd689443df7a874596412",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/getting-started/installation.md": {
+      "filePath": "src/content/docs/getting-started/installation.md",
+      "contentHash": "95d2cef2fc3a984659a333b66583c6261374cdb295203944854dacccb3f5dddc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 70,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/getting-started/introduction.md": {
+      "filePath": "src/content/docs/getting-started/introduction.md",
+      "contentHash": "eb8dbe665e99c8acb15e04964a52b6082aa6d2b69e43e2d93c469e00bbc2dfb6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 36,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/getting-started/next-steps.md": {
+      "filePath": "src/content/docs/getting-started/next-steps.md",
+      "contentHash": "57b723fc47355de64fdc855c3f9d9169debc57c4f27d02d8ffc839b1d0be917c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/getting-started/quickstart.md": {
+      "filePath": "src/content/docs/getting-started/quickstart.md",
+      "contentHash": "ee75da8459cfcdce4bbfed92dc33ac49e93f5f2d44c7938582bf3261f59b656b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/getting-started/your-first-graph.md": {
+      "filePath": "src/content/docs/getting-started/your-first-graph.md",
+      "contentHash": "61cb08c619110de3c2b81a1ee2f86edfb9be059a4772c64c29b798f262258313",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 45,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/guides/affected-tests.md": {
+      "filePath": "src/content/docs/guides/affected-tests.md",
+      "contentHash": "6c59d51a07fa06a30188bd384bb6e56809ba1e614e4bbf508f91bf0dc0909efe",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/guides/framework-routes.md": {
+      "filePath": "src/content/docs/guides/framework-routes.md",
+      "contentHash": "07a305cea8633dd30b3607fadceabaaef25c746bbc877fe2f3484391dcba65a7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/guides/indexing.md": {
+      "filePath": "src/content/docs/guides/indexing.md",
+      "contentHash": "d47f30fc7f8495b107c34576b306cc42525f9233ab5abfa70907665536012521",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/reference/api.md": {
+      "filePath": "src/content/docs/reference/api.md",
+      "contentHash": "43bd028d545c522b0fc1069350bbb54e9b7bf85ad43a053b4bc773c95c822281",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 46,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/reference/cli.md": {
+      "filePath": "src/content/docs/reference/cli.md",
+      "contentHash": "1474a35b33d615166fd8f3bb451bcff4d3123168355b36f210b88d5c526eff57",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 38,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/reference/integrations.md": {
+      "filePath": "src/content/docs/reference/integrations.md",
+      "contentHash": "713728ef3e08ba9ebb890728319364c2c82e2ef7fb94cdfaea0583c822623009",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 62,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/reference/languages.md": {
+      "filePath": "src/content/docs/reference/languages.md",
+      "contentHash": "07fc2904c0fe9860dc357fc5219fe4c2bf2cb005040511385d61f7fbb32eaa93",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/reference/mcp-server.md": {
+      "filePath": "src/content/docs/reference/mcp-server.md",
+      "contentHash": "6eb856aa214382ff44fbbabb63cccdb0f8af7b6918725209bd2cc4dc23a83f12",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/core-concepts/how-it-works.md": {
+      "filePath": "src/content/docs/zh/core-concepts/how-it-works.md",
+      "contentHash": "28b8c6c5dbddf401bfd6871ffd67e880e79218ec1450ce80e397de4a06852d0e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/core-concepts/knowledge-graph.md": {
+      "filePath": "src/content/docs/zh/core-concepts/knowledge-graph.md",
+      "contentHash": "246371d312d32c9c06163e5e90a0b47a3d606dd94a2ed739f23247f8865c5e43",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/core-concepts/resolution.md": {
+      "filePath": "src/content/docs/zh/core-concepts/resolution.md",
+      "contentHash": "fed8a2210242af15fdc4ba9f4046e8d177a933491e48c1a581c4ae54206d9c16",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/getting-started/configuration.md": {
+      "filePath": "src/content/docs/zh/getting-started/configuration.md",
+      "contentHash": "f95417f283f516dc341fa4e8d260e92e14f5c9200d5873956d88e24c7ffb0a1d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/getting-started/installation.md": {
+      "filePath": "src/content/docs/zh/getting-started/installation.md",
+      "contentHash": "1a493264f3bfc3b837736172d3a73bfc376e5f18a3eaed8d7f75c3fa01f742ba",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 70,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/getting-started/introduction.md": {
+      "filePath": "src/content/docs/zh/getting-started/introduction.md",
+      "contentHash": "977474f4d0d6ccbf19445702cdb522fac48574207b1be69d87fbb3522413fb6d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 36,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/getting-started/next-steps.md": {
+      "filePath": "src/content/docs/zh/getting-started/next-steps.md",
+      "contentHash": "b763cac68d902393abe12037ac8230cdb25bf00cae01541cdc2688fd707f71c7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/getting-started/quickstart.md": {
+      "filePath": "src/content/docs/zh/getting-started/quickstart.md",
+      "contentHash": "a2afe8c3c8ae812506129a354b8df323bee2ba814b19abf5167ffc77df9f623f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/getting-started/your-first-graph.md": {
+      "filePath": "src/content/docs/zh/getting-started/your-first-graph.md",
+      "contentHash": "00c7939906a32d1ecd7aeea8d3bfc92cd61a66c2714af67928168ba87bf3c302",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 45,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/guides/affected-tests.md": {
+      "filePath": "src/content/docs/zh/guides/affected-tests.md",
+      "contentHash": "30f4cd7687a896777d5578f68ff6e51e742fe34f55858f71d8f1fb4ea6493026",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/guides/framework-routes.md": {
+      "filePath": "src/content/docs/zh/guides/framework-routes.md",
+      "contentHash": "6300bc93352ff85df0d37bc331d1081822c2ee8749715ec70e0c770570ef0b18",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/guides/indexing.md": {
+      "filePath": "src/content/docs/zh/guides/indexing.md",
+      "contentHash": "8de5170111ef67d70d9a2e1af9b854832c5935585d890ab98ecdec51aec16797",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/reference/api.md": {
+      "filePath": "src/content/docs/zh/reference/api.md",
+      "contentHash": "4a651fcebc1be99113c746a378572972b6f87368e39cb07d0688a0e1436d38cf",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 46,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/reference/cli.md": {
+      "filePath": "src/content/docs/zh/reference/cli.md",
+      "contentHash": "6fbf0fefc2fdc634e51da63c8ac98e65a8e1aaa2e089e7134668ff1c941c496e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 38,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/reference/integrations.md": {
+      "filePath": "src/content/docs/zh/reference/integrations.md",
+      "contentHash": "d3e09518144f8477ec9417bc217167d6092af4169720027285aaf99c0646cca0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 62,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/reference/languages.md": {
+      "filePath": "src/content/docs/zh/reference/languages.md",
+      "contentHash": "01ce84c6c4815538430281132e65b673f0e1b7979b492e623617aca28752407f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/reference/mcp-server.md": {
+      "filePath": "src/content/docs/zh/reference/mcp-server.md",
+      "contentHash": "b9e2e7df18a688ade795530ad02fabec37495a1032f89b5492ea0a92d36a190c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    ".understand-anything/.understandignore": {
+      "filePath": ".understand-anything/.understandignore",
+      "contentHash": "4b1decac7cdb4ac95519ee66900d5879013f9d865585fddfd76d7342bd25cb5b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 25,
+      "hasStructuralAnalysis": false
+    },
+    ".understand-anything/config.json": {
+      "filePath": ".understand-anything/config.json",
+      "contentHash": "bd71adedf5d3d93dd6502e682fa30bcc0d0e45835d2d471a12e4353ebc44acbf",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "astro.config.mjs": {
+      "filePath": "astro.config.mjs",
+      "contentHash": "5053680a5b40a2fb4326c41abeb0fb67c6e14acdae2c948b7e4d7e80b3ff63fb",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "astro/config",
+          "specifiers": [
+            "defineConfig"
+          ]
+        },
+        {
+          "source": "@astrojs/starlight",
+          "specifiers": [
+            "starlight"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 106,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/GraphDiagram.astro": {
+      "filePath": "src/components/GraphDiagram.astro",
+      "contentHash": "0f636444a2d1a1cc597abeda474b80f2334e415be3dd2dc60ffac3528451aa94",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 87,
+      "hasStructuralAnalysis": false
+    },
+    "src/components/SiteTitle.astro": {
+      "filePath": "src/components/SiteTitle.astro",
+      "contentHash": "2b0d7b3594e82a5120e3ad89c5eb136d1fd114f20b02e2a87fac2489681df63e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 25,
+      "hasStructuralAnalysis": false
+    },
+    "src/components/SocialIcons.astro": {
+      "filePath": "src/components/SocialIcons.astro",
+      "contentHash": "9dae297a2ed58ff50af0510383393dc594b2e0c24a99e5964b8872c8f8cbda44",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 71,
+      "hasStructuralAnalysis": false
+    },
+    "src/content.config.ts": {
+      "filePath": "src/content.config.ts",
+      "contentHash": "d75803bd9777e03e854551c3f1c7e0afd69bca897526e28c7ae4c476c8b8f1fa",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "astro:content",
+          "specifiers": [
+            "defineCollection"
+          ]
+        },
+        {
+          "source": "@astrojs/starlight/loaders",
+          "specifiers": [
+            "docsLoader"
+          ]
+        },
+        {
+          "source": "@astrojs/starlight/schema",
+          "specifiers": [
+            "docsSchema"
+          ]
+        }
+      ],
+      "exports": [
+        "collections"
+      ],
+      "totalLines": 8,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/troubleshooting.md": {
+      "filePath": "src/content/docs/troubleshooting.md",
+      "contentHash": "1369c5cf1ead75418a5b16e868e8d6468e22c185c40ae7ff50f3198101724527",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    },
+    "src/content/docs/zh/troubleshooting.md": {
+      "filePath": "src/content/docs/zh/troubleshooting.md",
+      "contentHash": "65c5c7ae8ee414337eab8bf179465000ee9a228ed05d0fb1d14605622f1cd91a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/github.ts": {
+      "filePath": "src/lib/github.ts",
+      "contentHash": "bfc6ad527dfb34324aa73a35cfb6abe8b2dcd4af764761d890ea2e388f7f3600",
+      "functions": [
+        {
+          "name": "format",
+          "params": [
+            "n"
+          ],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "fetchStars",
+          "params": [
+            "fallback"
+          ],
+          "returnType": "Promise<string>",
+          "exported": false,
+          "lineCount": 19
+        },
+        {
+          "name": "getStarsLabel",
+          "params": [
+            "fallback"
+          ],
+          "returnType": "Promise<string>",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "getStarsLabel"
+      ],
+      "totalLines": 43,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/index.astro": {
+      "filePath": "src/pages/index.astro",
+      "contentHash": "fef611b0e51947add619abc715e0f83c2dc0d8b134e49d07dd694b89878e49d9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 458,
+      "hasStructuralAnalysis": false
+    },
+    "src/styles/theme.css": {
+      "filePath": "src/styles/theme.css",
+      "contentHash": "3142df22dbf8bb9c3a0bf81499c33f4f9e9f68497ea0d73dab423173d96dfeed",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 227,
+      "hasStructuralAnalysis": false
+    }
+  }
+}

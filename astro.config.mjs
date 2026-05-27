@@ -2,11 +2,8 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// Project page on GitHub Pages: https://jacobhsu.github.io/codegraph-starlight/
-// `site` + `base` make every internal link resolve under the /codegraph-starlight/ prefix.
 export default defineConfig({
-	site: 'https://jacobhsu.github.io',
-	base: '/codegraph-starlight',
+	site: 'https://codegraph-starlight.vercel.app',
 	integrations: [
 		starlight({
 			title: 'codegraph',

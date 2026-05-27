@@ -2,7 +2,7 @@
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
-**codegraph**](https://colbymchenry.github.io/codegraph) 是一個本地優先的程式碼智慧工具，能將任何程式碼庫轉換成可查詢的知識圖譜，供 AI 程式碼代理人使用。
+[**codegraph**](https://colbymchenry.github.io/codegraph) 是一個本地優先的程式碼智慧工具，能將任何程式碼庫轉換成可查詢的知識圖譜，供 AI 程式碼代理人使用。
 
 本站是 codegraph 的中文文件網站，涵蓋快速入門、核心概念、使用指南與 API 參考，以 [Astro](https://astro.build/) + [Starlight](https://starlight.astro.build/) 建置並部署於 GitHub Pages。
 

@@ -12,7 +12,8 @@
   "pnpm": {
     "lockfilePolicy": {
       "minimumReleaseAge": "0"
-    }
+    },
+    "onlyBuiltDependencies": ["esbuild", "sharp"]
   },
   "dependencies": {
     "@astrojs/starlight": "^0.39.2",

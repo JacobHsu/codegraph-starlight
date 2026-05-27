@@ -12,6 +12,16 @@ export default defineConfig({
 			title: 'codegraph',
 			description:
 				'A local-first code-intelligence tool that turns any codebase into a queryable knowledge graph for AI coding agents.',
+			locales: {
+				root: {
+					label: 'English',
+					lang: 'en',
+				},
+				zh: {
+					label: '繁體中文',
+					lang: 'zh-TW',
+				},
+			},
 			favicon: '/favicon.svg',
 			head: [
 				{
